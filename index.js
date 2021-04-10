@@ -13,7 +13,7 @@ const inventors = [
   { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
 ];
 
-// tu passes une fonciton et cette fonction va loop over ton array pour chercher ce que tu veux
+// tu passes une fonction et cette fonction va loop over ton array pour chercher ce que tu veux
 
 const filtre = inventors.filter( inventor => {
   if(inventor.year >= 1500 && inventor.year < 1600) {
@@ -25,6 +25,22 @@ const filtre = inventors.filter( inventor => {
 
 console.table(filtre);
 
+// map sert à donner un tableau de ce qu'on cherche
+
 const fullNames = inventors.map( inventor => `${inventor.first} ${inventor.last}`);
 
 console.table(fullNames);
+
+// sort c'est pour trier retourne un tableau
+
+const order = inventors.sort( (a,b) => a.first > b.first ? 1 : -1);
+
+console.table(order);
+
+// traite chaque valeur d'une liste pour la réduire à une seule valeur, un accumulateur
+
+const total =  inventors.reduce( (total, inventor) => {
+  return total + (inventor.passed - inventor.year);
+}, 0)
+
+console.log(total);
